@@ -11,8 +11,6 @@ urlpatterns = patterns('stepup.views',
     # url(r'^blog/', include('blog.urls')),
 
     #auth
-    url(r'^login/', 'django.contrib.auth.views.login', {'template_name': 'login_request'}, name='user-login'),
-    url(r'^logout/', 'logout_page'),
 
     url(r'^admin/', include(admin.site.urls)),
 
@@ -31,4 +29,12 @@ urlpatterns = patterns('stepup.views',
     # organization
     url(r'^organization/(?P<slug>[^\.]+)', 'organization', name = 'view_organization'),
 
+)
+#urlpatterns += patterns('',
+#    url(r'^login/', 'django.contrib.auth.views.login', {'template_name': 'login_request'}, name='user-login')
+#)
+urlpatterns += patterns('django.contrib.auth.views',
+    url(r'^login/$', 'login', {'template_name': 'login.html'},
+        name='mysite_login'),
+    url(r'^logout/$', 'logout', {'next_page': '/'}, name='mysite_logout'),
 )
