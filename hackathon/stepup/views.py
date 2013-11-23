@@ -4,8 +4,27 @@ from stepup.models import *
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
-
+from django.contrib.auth import authenticate, login
 # other view functions
+
+#login
+
+def login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+            # Redirect to a success page.
+	return render_to_response('index.html', {
+
+    },
+    )
+    else:
+        # Return an 'invalid login' error message.
+        return render_to_response('login.html', {
+    },
+    )
 
 # webpage-generating view functions
 def index(request):
