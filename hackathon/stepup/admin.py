@@ -51,7 +51,7 @@ class PersonAdmin(admin.StackedInline):
     model = Person
     can_delete = False
     fieldsets = [
-        (None,                   {'fields': ['description']}),
+        (None,                   {'fields': ['description', 'maxdistance']}),
         ("Location information", {'fields': ['city', 'state', 'country']}),
 	("Availability", {'fields': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']})
     ]
