@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 #login
 
-def login(request):
+def login_request(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']

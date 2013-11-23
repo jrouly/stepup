@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
 from django.contrib import auth
+
 admin.autodiscover()
 
 urlpatterns = patterns('stepup.views',
@@ -10,7 +11,7 @@ urlpatterns = patterns('stepup.views',
     # url(r'^blog/', include('blog.urls')),
 
     #auth
-    url(r'^login/', 'login', name = 'login'),
+    url(r'^login/', 'login_request', name = 'login'),
     url(r'^logout/', 'logout_page'),
 
     url(r'^admin/', include(admin.site.urls)),
