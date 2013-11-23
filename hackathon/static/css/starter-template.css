@@ -8,5 +8,11 @@ body {
 
 .moarcolor {
   background: LightSteelBlue;
-  outline-color: Gray;
+  padding-bottom = 10px;
+  border-radius: 8px;
+}
+
+.backgrounddiv {
+  background: LightBlue;
+  border-radius: 5px;
 }
