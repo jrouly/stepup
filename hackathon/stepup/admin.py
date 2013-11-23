@@ -20,6 +20,10 @@ class OpportunityInlineTag(admin.StackedInline):
     model = Tag.opportunities.through
     extra = 1
 
+class OpportunityInlineOrg(admin.StackedInline):
+    model = Organization.opportunities.through
+    extra = 1
+
 class TagAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,          {'fields': ['name', 'description']})
@@ -48,9 +52,9 @@ class OpportunityAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,          {'fields': ['name', 'description']}),
         ("Location information", {'fields': ['city', 'state', 'country']}),
-	("Availability", {'fields': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']})
+	("Times", {'fields': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']})
     ]
-    inlines = [OpportunityInlineTag]
+    inlines = [OpportunityInlineTag, OpportunityInlineOrg]
     list_display = ('name', 'description')
     list_filter = ('name', 'tags', 'date_created')
     form = AvailabilityForm
