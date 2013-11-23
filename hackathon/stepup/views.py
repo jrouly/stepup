@@ -68,7 +68,13 @@ def organization(request, slug):
     },
     )
 
-def about(request):
+def about(request, slug):
+    return render_to_response('about.html', {
+    # put the variables you need here
+    },
+    )
+
+def logout_page(request, slug):
     return render_to_response('about.html', {
     # put the variables you need here
     },
