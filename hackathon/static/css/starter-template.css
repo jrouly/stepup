@@ -82,3 +82,7 @@ body {
   width: 400px;
   margin: auto;
 }
+
+.centered-image {
+  text-align: center;
+}
