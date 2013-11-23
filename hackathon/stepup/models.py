@@ -9,7 +9,7 @@ class User(models.Model):
     name = models.CharField("Username", max_length=200)
     slug = models.SlugField(max_length=50)
     # location =
-    description = models.TextField()
+    description = models.TextField(blank=True)
 
     def __unicode__(self):
         return '%s' % self.name

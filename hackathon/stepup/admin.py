@@ -18,7 +18,7 @@ class PersonInlineTag(admin.StackedInline):
 
 class OpportunityInlineTag(admin.StackedInline):
     model = Tag.opportunities.through
-    extra=1
+    extra = 1
 
 class TagAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -30,7 +30,7 @@ class PersonAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,          {'fields': ['name', 'first_name', 'last_name', 'description']}),
         ("Location information", {'fields': ['city', 'state', 'country']}),
-	("Availability", {'fields': ['sunday']})
+	("Availability", {'fields': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']})
     ]
     inlines = [PersonInlineOrg, PersonInlineTag]
     list_display = ('name', 'description')
@@ -47,7 +47,8 @@ class OrganizationAdmin(admin.ModelAdmin):
 class OpportunityAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,          {'fields': ['name', 'description']}),
-        ("Location information", {'fields': ['city', 'state', 'country']})
+        ("Location information", {'fields': ['city', 'state', 'country']}),
+	("Availability", {'fields': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']})
     ]
     inlines = [OpportunityInlineTag]
     list_display = ('name', 'description')
