@@ -75,7 +75,8 @@ def about(request, slug):
     )
 
 def logout_page(request, slug):
-    return render_to_response('about.html', {
+    logout(request)
+    return render_to_response('login.html', {
     # put the variables you need here
     },
     )
