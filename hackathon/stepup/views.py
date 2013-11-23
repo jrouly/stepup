@@ -72,7 +72,7 @@ def person(request, slug):
     return render_to_response('person.html', {
        "current_user" : request.user,
        "requested_user" : Person.objects.get(user__username=slug),
-       "person_tags" : Tags.objects.all(),
+       "person_tags" : Tag.objects.all(),
     },
     context_instance = RequestContext(request),
     )
