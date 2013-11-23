@@ -44,26 +44,26 @@
 <div class="row">
   <div class="col-md-6 text-left">
     <h2>Schedule of Availability</h2>
-    {% if sunday %}
-      <p>sunday: {{sunday}}</p>
+    {% if sunday > 0 %}
+      <p>sunday: Available</p>
     {% endif %}
-    {% if monday %}
-      <p>monday: {{monday}}</p>
+    {% if monday > 0 %}
+      <p>monday: Available</p>
     {% endif %}
-    {% if tuesday %}
-      <p>tuesday: {{tuesday}}</p>
+    {% if tuesday > 0 %}
+      <p>tuesday: Available</p>
     {% endif %}
-    {% if wednesday %}
-      <p>wednesday: {{wednesday}}</p>
+    {% if wednesday > 0 %}
+      <p>wednesday: Available</p>
     {% endif %}
-    {% if thursday %}
-      <p>thursday: {{thursday}}</p>
+    {% if thursday > 0 %}
+      <p>thursday: Available</p>
     {% endif %}
-    {% if friday %}
-      <p>friday: {{friday}}</p>
+    {% if friday > 0 %}
+      <p>friday: Available</p>
     {% endif %}
-    {% if saturday %}
-      <p>saturday: {{saturday}}</p>
+    {% if saturday > 0 %}
+      <p>saturday: Available</p>
     {% endif %}
   </div>
   <div class="col-md-6 text-left">
