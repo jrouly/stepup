@@ -1,5 +1,6 @@
 # Create your views here.
 
+from stepup.models import *
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
@@ -14,8 +15,8 @@ def index(request):
 
     try:
          page = int(request.GET.get("page", '1'))
-    except:
-         ValueError: page = 1
+    except ValueError:
+         page = 1
 
     try: 
         opportunities = paginator.page(page)
@@ -34,7 +35,7 @@ def opportunity(request):
     },
     )
 
-def person(request):
+def person(request, slug):
     return render_to_response('person.html', {
 
     },
