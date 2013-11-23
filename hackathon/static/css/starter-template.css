@@ -1,28 +1,19 @@
 body {
-  padding-top: 50px;
-}
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
-<<<<<<< HEAD
-
-.moarcolor {
-  background: LightSteelBlue;
-  padding-bottom = 10px;
-  border-radius: 8px;
+  padding-top: 80px;
+  background: LightGray;
 }
 
-.backgrounddiv {
+.back-tiles {
   background: LightBlue;
-  border-radius: 5px;
-=======
-.merged .input-group-addon {
-  border-right: 0px;
-  background-color: #FFFFFF;
+  border-radius: 7px;
+  padding 25px;
+  margin-bottom: 15px;
 }
-.merged input {
-  border-left: 0px;
-  background-color: #FFFFFF;
->>>>>>> 4cb5b63595d0610299b94e2aea2b46f42d849c73
+
+.front-tiles {
+  background: LightSteelBlue;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 15px;
 }
