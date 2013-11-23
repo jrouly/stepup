@@ -11,7 +11,7 @@ urlpatterns = patterns('stepup.views',
     # url(r'^blog/', include('blog.urls')),
 
     #auth
-    url(r'^login/', 'login_request', name = 'login'),
+    url(r'^login/', 'django.contrib.auth.views.login', {'template_name': 'login_request'}, name='user-login'),
     url(r'^logout/', 'logout_page'),
 
     url(r'^admin/', include(admin.site.urls)),
