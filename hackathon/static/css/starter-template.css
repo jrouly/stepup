@@ -1,3 +1,25 @@
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.backgrounddiv {
+  background: LightBlue;
+  border-radius: 5px;
+}
+
+.merged .input-group-addon {
+  border-right: 0px;
+  background-color: #FFFFFF;
+}
+
+div.input-group.merged {
+  width: 250px;
+  border-left: 0px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+}
+
 body {
   padding-top: 80px;
   background: LightGray;
@@ -16,3 +38,5 @@ body {
   margin-left: 10px;
   margin-bottom: 15px;
 }
+
+
