@@ -22,17 +22,17 @@ class PersonInlineOrg(admin.StackedInline):
     verbose_name = "Organizations"
 
 class PersonInlineTag(admin.StackedInline):
-    model = Tag.people.through
+    model = Person.tags.through
     extra = 1
     verbose_name = "Tags"
 
 class OpportunityInlineTag(admin.StackedInline):
-    model = Tag.opportunities.through
+    model = Opportunity.tags.through
     extra = 1
     verbose_name = "Tags"
 
 class OpportunityInlineOrg(admin.StackedInline):
-    model = Organization.opportunities.through
+    model = Opportunity.organizations.through
     extra = 1
     verbose_name = "Organization"
 

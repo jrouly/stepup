@@ -29,8 +29,8 @@
 
       <div class="navbar-right">
         <ul class="nav navbar-nav">
-          <li><a href="/person/abdullah">Profile</a></li>
           {% if logged_in %}
+            <li><a href="/person/abdullah">Profile</a></li>
             <li><a href="/logout">Log Out</a></li>
             {% if is_admin %}
               <li><a href="/organization/myorgname">About</a></li>
