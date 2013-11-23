@@ -18,11 +18,18 @@ class User(models.Model):
         abstract = True
 
 class Tag(models.Model):
+    name = models.CharField(max_length = 200)
+    description = models.TextField()
 
+<<<<<<< HEAD
     @permalink
     def get_absolute_url(self):
         return ('name_of_the_view;, None, {'slug':self.slug})
      
+=======
+    def __unicode__(self):
+        return '%s' % self.name
+>>>>>>> 8d2caacf150bd42121359d75f0df410a745c5b90
 class Opportunity(User):
 
     @permalink
