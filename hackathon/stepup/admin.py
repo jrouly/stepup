@@ -65,6 +65,7 @@ class OrganizationAdmin(admin.ModelAdmin):
     ]
     inlines = [OrgInlinePerson, OrgInlineAdmin]
     list_display = ('name', 'description')
+    form = PictureForm
 
 class OpportunityAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -75,7 +76,7 @@ class OpportunityAdmin(admin.ModelAdmin):
     inlines = [OpportunityInlineTag, OpportunityInlineOrg, OpportunityInlinePerson]
     list_display = ('name', 'description')
     list_filter = ('name', 'tags', 'date_created')
-    form = AvailabilityandPictureForm
+    form = AvailabilityForm
 
 class UserAdmin(UserAdmin):
     inlines = (PersonAdmin,)
