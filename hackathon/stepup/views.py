@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 # other view functions
 
 #login
@@ -27,6 +28,7 @@ def login(request):
     )
 
 # webpage-generating view functions
+@login_required
 def index(request):
 
     # opportunities filtered by user's tags, and in reverse chronological order
@@ -48,20 +50,20 @@ def index(request):
 
     },
     )
-
+@login_required
 def opportunity(request, slug):
 
     return render_to_response('opportunity.html', {
         # 'name' : 
     },
     )
-
+@login_required
 def person(request, slug):
     return render_to_response('person.html', {
     
     },
     )
-
+@login_required
 def organization(request, slug):
     return render_to_response('organization.html', {
     # put the variables you need here
