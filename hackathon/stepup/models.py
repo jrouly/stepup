@@ -29,7 +29,7 @@ class Opportunity(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    schedule = models.DateField()
+    schedule = models.DateField(blank=True)
     date_created = models.DateTimeField()
     date_created.auto_now_add = True
     @models.permalink
@@ -49,7 +49,7 @@ class Person(User):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    schedule = models.DateField()
+    schedule = models.DateField(blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
     organizations = models.ManyToManyField('Organization', blank=True)
 
