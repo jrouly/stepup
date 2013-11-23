@@ -126,7 +126,7 @@ def person(request, slug):
 @login_required
 def all_person(request):
     return render_to_response('all_person.html', {
-        all_person = Person.objects.all(),
+        "all_person" : Person.objects.all(),
     },
     context_instance = RequestContext(request),
     )
