@@ -25,7 +25,11 @@
   </div>
   <div class="col-md-6 text-left">
     <h2>Previous Events</h2>
-    <p>Still static.</p>
+    
+    {% for event in requested_user.events %}
+      <p>{{ event }}</p>
+    {% endfor %}
+
   </div>
 </div>
 
