@@ -18,7 +18,7 @@ def login_request(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-	    return render_to_response('/index', {
+	    return render_to_response('/', {
 
         },
         )
