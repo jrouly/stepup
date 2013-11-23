@@ -44,18 +44,32 @@
 <div class="row">
   <div class="col-md-6 text-left">
     <h2>Schedule of Availability</h2>
-    <p>sunday: {{sunday}}</p>
-    <p>monday: {{monday}}</p>
-    <p>tuesday: {{tuesday}}</p>
-    <p>wednesday: {{wednesday}}</p>
-    <p>thursday: {{thursday}}</p>
-    <p>friday: {{friday}}</p>
-    <p>saturday: {{saturday}}</p>
+    {% if sunday %}
+      <p>sunday: {{sunday}}</p>
+    {% endif %}
+    {% if monday %}
+      <p>monday: {{monday}}</p>
+    {% endif %}
+    {% if tuesday %}
+      <p>tuesday: {{tuesday}}</p>
+    {% endif %}
+    {% if wednesday %}
+      <p>wednesday: {{wednesday}}</p>
+    {% endif %}
+    {% if thursday %}
+      <p>thursday: {{thursday}}</p>
+    {% endif %}
+    {% if friday %}
+      <p>friday: {{friday}}</p>
+    {% endif %}
+    {% if saturday %}
+      <p>saturday: {{saturday}}</p>
+    {% endif %}
   </div>
   <div class="col-md-6 text-left">
     <h2>Tags</h2>
     <p>
-      {% for tag in global_tags %}
+      {% for tag in requested_tags %}
         [{{ tag }}]
       {% endfor %}
     </p>
