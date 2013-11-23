@@ -1,6 +1,15 @@
 from django.contrib import admin
-from stepup.models import Tag, Person, Organization
+from stepup.models import Tag, Person, Organization, Opportunity
 
-admin.site.register(Tag)
-admin.site.register(Person)
-admin.site.register(Organization)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('name', 'bio')
+
+class OrganizationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+
+admin.site.register(Tag, TagAdmin)
+admin.site.register(Person, PersonAdmin)
+admin.site.register(Organization, OrganizationAdmin)
