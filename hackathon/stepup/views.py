@@ -1,6 +1,5 @@
 # Create your views here.
 
-from stepup.models import *
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
@@ -10,15 +9,15 @@ from django.core.urlresolvers import reverse
 # webpage-generating view functions
 def index(request):
 
-    # need to sort by the students' tags-- not currently working
+    # opportunities filtered by user's tags, and in reverse chronological order
 
     opportunities = Opportunity.objects.filter(tags__).order_by("-posted")
     paginator = Paginator(opportunities, 12)
 
     try:
          page = int(request.GET.get("page", '1'))
-    except ValueError:
-         page = 1
+    except:
+         ValueError: page = 1
 
     try: 
         opportunities = paginator.page(page)
@@ -37,7 +36,7 @@ def opportunity(request):
     },
     )
 
-def person(request, slug):
+def person(request):
     return render_to_response('person.html', {
     
     },
