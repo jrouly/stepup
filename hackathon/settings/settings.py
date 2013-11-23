@@ -177,3 +177,5 @@ LOGGING = {
 if os.environ.get('DATABASE_URL', None):
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
+
+AUTH_PROFILE_MODULE = 'stepup.Person'
