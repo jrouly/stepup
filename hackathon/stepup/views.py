@@ -82,7 +82,7 @@ def index(request):
         "tag_feed" : tag_opportunities,
         "org_feed" : org_opportunities,
         "tags_and_orgs_feed" : tags_and_orgs,
-        "combined_feed" : global_opps,
+        "global_opp_feed" : global_opps,
     },
     context_instance = RequestContext(request),
     )

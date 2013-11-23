@@ -7,20 +7,20 @@
     <div class ="row">
         <div class="col-md-6 back-tiles pull-left"><h3>Interest Feed</h3>
           <div class="row">
-            <div class="front-tiles"><h4>Opportunities matching with your tags.</h4></div>
+            <div class="front-tiles"><h4>Opportunities matching with your tags.</h4>
 
             <div class="feed">
               {% for entry in tag_feed %}
                 {{ entry }}<br />
               {% endfor %}
             </div>
-
+            </div>
           </div>
         </div>
         
         <div class="col-md-6 back-tiles pull-right"><h3>Organizational Feed</h3>
           <div class="row">
-            <div class="front-tiles"><h4>All of the activity from your organizations.</h4></div>
+            <div class="front-tiles"><h4>All of the activity from your organizations.</h4>
 
 
             <div class="feed">
@@ -29,7 +29,7 @@
               {% endfor %}
             </div>
 
-
+            </div>
           </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
       <div class="col-md-6 back-tiles pull-left"><h3>Trending Feed</h3>
         <div class="row">
           <div class="front-tiles"><h4>This feed shows trending, popular
-          events and tags in the community.</h4></div>
+          events and tags in the community.</h4>
 
             <div class="feed">
               {% for entry in tags_and_orgs_feed %}
@@ -46,14 +46,14 @@
               {% endfor %}
             </div>
 
-
+          </div>
         </div>
       </div>
       
       <div class="col-md-6 back-tiles pull-right"><h3>Platform Opportunities</h3>
         <div class="row">
           <div class="front-tiles"><h4>Displays all of the opportunities
-          currently present on the platform.</h4></div>
+          currently present on the platform.</h4>
 
             <div class="feed">
               {% for entry in global_opp_feed %}
@@ -61,7 +61,7 @@
               {% endfor %}
             </div>
 
-
+          </div>
         </div>
       </div>
     </div>
