@@ -66,12 +66,23 @@ def index(request):
     for org in current_orgs:
         opportunity = Opportunity.objects.filter(organizations=org).all()
         org_opportunities.append( opportunity )
-      
-    
+
+    tags_and_orgs = []
+    global_tags = Tag.objects.all()
+    for tag in global_tags:
+        tags_and_orgs.append( tag )
+    global_orgs = Organization.objects.all()
+    for org in global_orgs:
+        tags_and_orgs.append( org )
+
+    global_opps = Opportunity.objects.all()
+
     return render_to_response('index.html', {
         "current_user" : current_user,
         "tag_feed" : tag_opportunities,
         "org_feed" : org_opportunities,
+        "tags_and_orgs_feed" : tags_and_orgs,
+        "combined_feed" : global_opps,
     },
     context_instance = RequestContext(request),
     )
