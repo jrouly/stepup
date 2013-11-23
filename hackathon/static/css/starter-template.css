@@ -37,8 +37,6 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 15px;
-  
-  
 }
 .pull-left{
   width: 45%;
@@ -79,4 +77,7 @@ body {
 #person_5{
 	width: 20%;
 
+}
+.form-horizontal {
+  width: 400px;
 }
