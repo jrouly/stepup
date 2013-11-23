@@ -45,8 +45,21 @@
   <div class="col-md-6 text-left">
     <h2>Schedule of Availability</h2>
     {% if sunday > 2 %}
-      <p>sunday: Available</p>
+      <p>sunday: Available
+      {% if 0 in sunday %}
+        morning
+      {% endif %}
+      {% if 1 in sunday %}
+        afternoon
+      {% endif %}
+      {% if 2 in sunday %}
+        evening
+      {% endif %}
+      {% if 3 in sunday %}
+        night
+      {% endif %}
     {% endif %}
+      </p>
     {% if monday > 2 %}
       <p>monday: Available</p>
     {% endif %}
