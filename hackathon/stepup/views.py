@@ -135,7 +135,7 @@ def all_person(request):
 def organization(request, slug):
     return render_to_response('organization.html', {
         "requested_org" : Organization.objects.get(name=slug),
-        "requested_tags" : Organization.objects.get(name=slug).tags.all(),
+        #"requested_tags" : Organization.objects.get(name=slug).tags.all(),
         #"global_tags" : Tag.objects.all(),
         "global_events" : Opportunity.objects.all(),
         "sunday" : len(Organization.objects.get(name=slug).sunday),
