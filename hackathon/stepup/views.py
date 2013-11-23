@@ -84,6 +84,15 @@ def opportunity(request, slug):
     context_instance = RequestContext(request),
     )
 
+# what seems to be a usability issue
+@login_required
+def all_opportunity(request):
+    return render_to_response('all_opportunity.html', {
+        all_opportunity = Opportunity.objects.all(),
+    },
+    context_instance = RequestContext(request),
+    )
+
 @login_required
 def person(request, slug):
     return render_to_response('person.html', {

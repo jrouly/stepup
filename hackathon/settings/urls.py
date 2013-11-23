@@ -26,6 +26,9 @@ urlpatterns = patterns('stepup.views',
     # opportunity
     url(r'^opportunity/(?P<slug>[^\.]+)', 'opportunity', name = 'view_opportunity'),
 
+    # all opportunities
+    url(r'^opportunity/', 'all_opportunity', name = 'view_all_opportunity'),
+
     # organization
     url(r'^organization/(?P<slug>[^\.]+)', 'organization', name = 'view_organization'),
 
