@@ -32,6 +32,9 @@ urlpatterns = patterns('stepup.views',
     # comments
     url(r'^comments/', include('django.contrib.comments.urls')),
 
+    # search
+    url(r'^search/', 'search', name = 'view_search'),
+
 )
 #urlpatterns += patterns('',
 #    url(r'^login/', 'django.contrib.auth.views.login', {'template_name': 'login_request'}, name='user-login')

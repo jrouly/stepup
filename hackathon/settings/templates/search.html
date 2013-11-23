@@ -1,0 +1,9 @@
+{% include base.html %}
+
+{% block content %}
+
+{% for result in results %}
+  <li><a href="{{ result.get_absolute_url }}
+{% endfor %}
+
+{% endblock %}
