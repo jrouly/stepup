@@ -9,7 +9,9 @@ from django.core.urlresolvers import reverse
 # webpage-generating view functions
 def index(request):
 
-    opportunities = Opportunity.objects.all().order_by("-posted")
+    # need to sort by the students' tags-- not currently working
+
+    opportunities = Opportunity.objects.filter(tags__).order_by("-posted")
     paginator = Paginator(opportunities, 12)
 
     try:
@@ -30,18 +32,18 @@ def index(request):
 def opportunity(request):
 
     return render_to_response('opportunity.html', {
-    
+        # 'name' : 
     },
     )
 
 def person(request):
     return render_to_response('person.html', {
-
+    
     },
     )
 
 def organization(request):
     return render_to_response('organization.html', {
-
+    # put the variables you need here
     },
     )
