@@ -1,8 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class User(models.Model):
+class UserClass(models.Model):
     """Default fields
     """
 
@@ -50,9 +51,11 @@ class Opportunity(models.Model):
         verbose_name_plural = "Opportunities"
 
 
-class Person(User):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
+class Person(models.Model):
+    user = models.OneToOneField(User)
+    slug = models.SlugField(max_length=50)
+    # location =
+    description = models.TextField(blank=True)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
@@ -76,7 +79,7 @@ class Person(User):
         verbose_name_plural = "People"
 
 
-class Organization(User):
+class Organization(UserClass):
     people = models.ManyToManyField(Person, Person.organizations.through,
                                     blank=True)
     opportunities = models.ManyToManyField(Opportunity,
