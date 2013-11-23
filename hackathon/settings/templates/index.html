@@ -11,7 +11,7 @@
 
             <div class="feed">
               {% for entry in tag_feed %}
-                <a href="{{ entry.get_absolute_url }}">{{entry }}</a><br />
+                {{entry }}
               {% endfor %}
             </div>
             </div>
@@ -25,7 +25,7 @@
 
             <div class="feed">
               {% for entry in org_feed %}
-                  <a href="{{ entry.get_absolute_url }}">{{entry }}</a><br />
+                  {{ entry }}<br />
 
               {% endfor %}
             </div>
@@ -43,7 +43,7 @@
 
             <div class="feed">
               {% for entry in tags_and_orgs_feed %}
-                  <a href="{{ entry }}">{{entry }}</a><br />
+                  {{ entry }}<br />
 
               {% endfor %}
             </div>
@@ -59,7 +59,7 @@
 
             <div class="feed">
               {% for entry in global_opp_feed %}
-		<a href="{{ entry.get_absolute_url }}">{{entry }}</a><br />
+		{{ entry }}<br />
               {% endfor %}
             </div>
 
