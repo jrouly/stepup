@@ -161,7 +161,7 @@ def all_organizations(request):
 @login_required
 def tag(request, slug):
     return render_to_response('tag.html', {
-        # 'name' : 
+        "x" : slug,
     },
     context_instance = RequestContext(request),
     )
