@@ -17,7 +17,7 @@ urlpatterns = patterns('stepup.views',
     # homepage
     url(r'^$', 'index', name = 'homepage'),
 
-	# about
+    # about
     url(r'^about/$', 'about', name = 'view_about'),
     
     # person
@@ -28,6 +28,9 @@ urlpatterns = patterns('stepup.views',
 
     # organization
     url(r'^organization/(?P<slug>[^\.]+)', 'organization', name = 'view_organization'),
+
+    # comments
+    url(r'^comments/', include('django.contrib.comments.urls')),
 
 )
 #urlpatterns += patterns('',
