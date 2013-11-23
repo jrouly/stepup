@@ -99,7 +99,7 @@ def opportunity(request, slug):
 @login_required
 def all_opportunity(request):
     return render_to_response('all_opportunity.html', {
-        all_opportunity = Opportunity.objects.all(),
+        "all_opportunity" : Opportunity.objects.all(),
     },
     context_instance = RequestContext(request),
     )
