@@ -151,7 +151,7 @@ def organization(request, slug):
 
 # ux display all things continued
 @login_required
-def all_organization(request):
+def all_organizations(request):
     return render_to_response('all_organization.html', {
         "all_organization" : Organization.objects.all(),
     },
