@@ -1,5 +1,8 @@
+from django.db import models
 from django.contrib import admin
+from django.forms import CheckboxSelectMultiple
 from stepup.models import Tag, Person, Organization, Opportunity
+from stepup.forms import AvailabilityForm
 
 class OrgInlinePerson(admin.StackedInline):
     model = Organization.people.through
@@ -26,10 +29,12 @@ class TagAdmin(admin.ModelAdmin):
 class PersonAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,          {'fields': ['name', 'first_name', 'last_name', 'description']}),
-        ("Location information", {'fields': ['city', 'state', 'country']})
+        ("Location information", {'fields': ['city', 'state', 'country']}),
+	("Availability", {'fields': ['sunday']})
     ]
     inlines = [PersonInlineOrg, PersonInlineTag]
     list_display = ('name', 'description')
+    form = AvailabilityForm
 
 class OrganizationAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -47,7 +52,7 @@ class OpportunityAdmin(admin.ModelAdmin):
     inlines = [OpportunityInlineTag]
     list_display = ('name', 'description')
     list_filter = ('name', 'tags', 'date_created')
-
+    form = AvailabilityForm
 
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Person, PersonAdmin)

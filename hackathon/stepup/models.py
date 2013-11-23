@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class User(models.Model):
     """Default fields
     """
@@ -29,7 +28,15 @@ class Opportunity(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    schedule = models.DateField(blank=True)
+
+    sunday = models.CharField(max_length=50, blank=True, verbose_name="Sunday")
+    monday = models.CharField(max_length=50, blank=True, verbose_name="Monday")
+    tuesday = models.CharField(max_length=50, blank=True, verbose_name="Tuesday")
+    wednesday = models.CharField(max_length=50, blank=True, verbose_name="Wednesday")
+    thursday = models.CharField(max_length=50, blank=True, verbose_name="Thursday")
+    friday = models.CharField(max_length=50, blank=True, verbose_name="Friday")
+    saturday = models.CharField(max_length=50, blank=True, verbose_name="Saturday")
+
     date_created = models.DateTimeField()
     date_created.auto_now_add = True
     @models.permalink
@@ -49,7 +56,15 @@ class Person(User):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    schedule = models.DateField(blank=True)
+
+    sunday = models.CharField(max_length=50, blank=True, verbose_name="Sunday")
+    monday = models.CharField(max_length=50, blank=True, verbose_name="Monday")
+    tuesday = models.CharField(max_length=50, blank=True, verbose_name="Tuesday")
+    wednesday = models.CharField(max_length=50, blank=True, verbose_name="Wednesday")
+    thursday = models.CharField(max_length=50, blank=True, verbose_name="Thursday")
+    friday = models.CharField(max_length=50, blank=True, verbose_name="Friday")
+    saturday = models.CharField(max_length=50, blank=True, verbose_name="Saturday")
+
     tags = models.ManyToManyField('Tag', blank=True)
     organizations = models.ManyToManyField('Organization', blank=True)
 
