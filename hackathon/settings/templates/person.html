@@ -17,7 +17,7 @@
   <div class="text-left col-md-3">
 
     <h4 class="profile-heading">Name</h4>
-    <h2 class="profile-value">{{requested_user.name}}</h2>
+    <h2 class="profile-value">{{requested_user.user}}</h2>
 
     <h4 class="profile-heading">Location</h4>
     <h2 class="profile-value">{{requested_user.city}}</h2>
@@ -45,12 +45,8 @@
   <div class="col-md-6 text-left">
     <h2>Tags</h2>
     <p>
-      {% for tag in person_tags %}
-        {% if person_tags.people.user == requested_user %}
-          
-          [{{ tag }}]
-
-        {% endif %}
+      {% for tag in global_tags %}
+        [{{ tag }}]
       {% endfor %}
     </p>
   </div>
