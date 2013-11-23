@@ -95,6 +95,15 @@ def opportunity(request, slug):
     context_instance = RequestContext(request),
     )
 
+# what seems to be a usability issue
+@login_required
+def all_opportunity(request):
+    return render_to_response('all_opportunity.html', {
+        all_opportunity = Opportunity.objects.all(),
+    },
+    context_instance = RequestContext(request),
+    )
+
 @login_required
 def person(request, slug):
     return render_to_response('person.html', {
@@ -113,6 +122,15 @@ def person(request, slug):
     context_instance = RequestContext(request),
     )
 
+# ux display all thing continued
+@login_required
+def all_person(request):
+    return render_to_response('all_person.html', {
+        all_person = Person.objects.all(),
+    },
+    context_instance = RequestContext(request),
+    )
+
 @login_required
 def organization(request, slug):
     return render_to_response('organization.html', {
@@ -127,6 +145,15 @@ def organization(request, slug):
         "thursday" : len(Organization.objects.get(user__username=slug).thursday),
         "friday" : len(Organization.objects.get(user__username=slug).friday),
         "saturday" : len(Organization.objects.get(user__username=slug).saturday),
+    },
+    context_instance = RequestContext(request),
+    )
+
+# ux display all things continued
+@login_required
+def all_organization(request):
+    return render_to_response('all_organization.html', {
+        all_organization = Organization.objects.all(),
     },
     context_instance = RequestContext(request),
     )

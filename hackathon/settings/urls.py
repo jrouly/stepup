@@ -23,13 +23,22 @@ urlpatterns = patterns('stepup.views',
     # person
     url(r'^person/(?P<slug>[^\.]+)', 'person', name = 'view_person'),
 
+    # all persons
+    url(r'^person/', 'all_person', name = 'view_all_person'),
+
     # opportunity
     url(r'^opportunity/(?P<slug>[^\.]+)', 'opportunity', name = 'view_opportunity'),
+
+    # all opportunities
+    url(r'^opportunity/', 'all_opportunity', name = 'view_all_opportunity'),
 
     # organization
     url(r'^organization/(?P<slug>[^\.]+)', 'organization', name = 'view_organization'),
 
     url(r'^tag/(?P<slug>[^\.]+)', 'tag', name = 'view_tag'),
+    
+    # all organizations
+    url(r'^organization/', 'all_organizations', name = 'view_all_organization'),
 
     # comments
     url(r'^comments/', include('django.contrib.comments.urls')),

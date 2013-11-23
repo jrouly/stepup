@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for opportunity in all_opportunity %}
+
+{{ opportunity }} </br>
+
+{% endfor %}
+
+{% endblock %}
+
+{% include 'pagination.html' %}
