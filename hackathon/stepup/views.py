@@ -134,17 +134,17 @@ def all_person(request):
 @login_required
 def organization(request, slug):
     return render_to_response('organization.html', {
-        "requested_org" : Organization.objects.get(user__username=slug),
-        "requested_tags" : Organization.objects.get(user__username=slug).tags.all(),
+        "requested_org" : Organization.objects.get(name=slug),
+        "requested_tags" : Organization.objects.get(name=slug).tags.all(),
         #"global_tags" : Tag.objects.all(),
         "global_events" : Opportunity.objects.all(),
-        "sunday" : len(Organization.objects.get(user__username=slug).sunday),
-        "monday" : len(Organization.objects.get(user__username=slug).monday),
-        "tuesday" : len(Organization.objects.get(user__username=slug).tuesday),
-        "wednesday" : len(Organization.objects.get(user__username=slug).wednesday),
-        "thursday" : len(Organization.objects.get(user__username=slug).thursday),
-        "friday" : len(Organization.objects.get(user__username=slug).friday),
-        "saturday" : len(Organization.objects.get(user__username=slug).saturday),
+        "sunday" : len(Organization.objects.get(name=slug).sunday),
+        "monday" : len(Organization.objects.get(name=slug).monday),
+        "tuesday" : len(Organization.objects.get(name=slug).tuesday),
+        "wednesday" : len(Organization.objects.get(name=slug).wednesday),
+        "thursday" : len(Organization.objects.get(name=slug).thursday),
+        "friday" : len(Organization.objects.get(name=slug).friday),
+        "saturday" : len(Organization.objects.get(name=slug).saturday),
     },
     context_instance = RequestContext(request),
     )
