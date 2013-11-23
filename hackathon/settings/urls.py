@@ -22,5 +22,7 @@ urlpatterns = patterns('stepup.views',
     # organization
     url(r'^organization/(?P<slug>[^\.]+)', 'organization', name = 'view_organization'),
 
+    # organization
+    url(r'^about/$', 'about', name = 'view_about'),
 
 )
