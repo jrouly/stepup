@@ -29,6 +29,8 @@ urlpatterns = patterns('stepup.views',
     # organization
     url(r'^organization/(?P<slug>[^\.]+)', 'organization', name = 'view_organization'),
 
+    url(r'^tag/(?P<slug>[^\.]+)', 'tag', name = 'view_tag'),
+
     # comments
     url(r'^comments/', include('django.contrib.comments.urls')),
 

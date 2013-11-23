@@ -13,25 +13,6 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.SlugField')(default=None, max_length=50),
                       keep_default=False)
 
-        # Adding M2M table for field attendees on 'Opportunity'
-        m2m_table_name = db.shorten_name(u'stepup_opportunity_attendees')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('opportunity', models.ForeignKey(orm[u'stepup.opportunity'], null=False)),
-            ('person', models.ForeignKey(orm[u'stepup.person'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['opportunity_id', 'person_id'])
-
-        # Adding M2M table for field events on 'Person'
-        m2m_table_name = db.shorten_name(u'stepup_person_events')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('person', models.ForeignKey(orm[u'stepup.person'], null=False)),
-            ('opportunity', models.ForeignKey(orm[u'stepup.opportunity'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['person_id', 'opportunity_id'])
-
-
     def backwards(self, orm):
         # Deleting field 'Tag.slug'
         db.delete_column(u'stepup_tag', 'slug')
