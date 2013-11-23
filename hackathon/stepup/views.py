@@ -53,22 +53,23 @@ def index(request):
 #    except (InvalidPage, EmptyPage):
 #        opportunities = paginator.page(paginator.num_pages)
 
+    current_user = Person.objects.get(user__username=request.user.username)
 
     tag_opportunities = []
-    current_tags = request.user.tags.all()
+    current_tags = current_user.tags.all()
     for tag in current_tags:
         opportunity = Opportunity.objects.filter(tags=tag).all()
         tag_opportunities.append( opportunity )
 
     org_opportunities = []
-    current_orgs = request.user.organizations.all()
+    current_orgs = current_user.organizations.all()
     for org in current_orgs:
         opportunity = Opportunity.objects.filter(organizations=org).all()
         org_opportunities.append( opportunity )
       
     
     return render_to_response('index.html', {
-        "current_user" : request.user,
+        "current_user" : current_user,
         "tag_feed" : tag_opportunities,
         "org_feed" : org_opportunities,
     },
