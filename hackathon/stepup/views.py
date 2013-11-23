@@ -74,6 +74,7 @@ def person(request, slug):
        "requested_user" : Person.objects.get(user__username=slug),
        #"requested_tags" : Person.objects.get(user__username=slug).tags,
        "global_tags" : Tag.objects.all(),
+       "global_events" : Opportunity.objects.all(),
     },
     context_instance = RequestContext(request),
     )
