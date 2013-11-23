@@ -18,8 +18,11 @@ class User(models.Model):
         abstract = True
 
 class Tag(models.Model):
+    name = models.CharField(max_length = 200)
+    description = models.TextField()
 
-    
+    def __unicode__(self):
+        return '%s' % self.name
 class Opportunity(User):
 
 class Person(User):
