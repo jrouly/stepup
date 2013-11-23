@@ -12,18 +12,18 @@ def index(request):
 
     # opportunities filtered by user's tags, and in reverse chronological order
 
-    opportunities = Opportunity.objects.filter(tags__).order_by("-posted")
-    paginator = Paginator(opportunities, 12)
+#    opportunities = Opportunity.objects.all().order_by("-posted")
+#    paginator = Paginator(opportunities, 12)
 
-    try:
-         page = int(request.GET.get("page", '1'))
-    except ValueError:
-         page = 1
+#    try:
+#         page = int(request.GET.get("page", '1'))
+#    except ValueError:
+#         page = 1
 
-    try: 
-        opportunities = paginator.page(page)
-    except (InvalidPage, EmptyPage):
-        opportunities = paginator.page(paginator.num_pages)
+#    try: 
+#        opportunities = paginator.page(page)
+#    except (InvalidPage, EmptyPage):
+#        opportunities = paginator.page(paginator.num_pages)
 
     return render_to_response('index.html', {
 
