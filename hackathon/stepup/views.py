@@ -72,8 +72,8 @@ def person(request, slug):
     return render_to_response('person.html', {
        "current_user" : request.user,
        "requested_user" : Person.objects.get(user__username=slug),
-       #"requested_tags" : Person.objects.get(user__username=slug).tags,
-       "global_tags" : Tag.objects.all(),
+       "requested_tags" : Person.objects.get(user__username=slug).tags.all(),
+       #"global_tags" : Tag.objects.all(),
        "global_events" : Opportunity.objects.all(),
        "sunday" : Person.objects.get(user__username=slug).sunday,
        "monday" : Person.objects.get(user__username=slug).monday,
