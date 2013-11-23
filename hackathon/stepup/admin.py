@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.forms import CheckboxSelectMultiple
 from stepup.models import Tag, Person, Organization, Opportunity
-from stepup.forms import AvailabilityForm
+from stepup.forms import AvailabilityForm, PictureForm, AvailabilityandPictureForm
 
 class OrgInlinePerson(admin.StackedInline):
     model = Organization.people.through
@@ -51,7 +51,7 @@ class PersonAdmin(admin.StackedInline):
 	("Availability", {'fields': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']})
     ]
     inlines = [PersonInlineOrg, PersonInlineTag]
-    form = AvailabilityForm
+    form = AvailabilityandPictureForm
 
 class OrganizationAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -70,7 +70,7 @@ class OpportunityAdmin(admin.ModelAdmin):
     inlines = [OpportunityInlineTag, OpportunityInlineOrg]
     list_display = ('name', 'description')
     list_filter = ('name', 'tags', 'date_created')
-    form = AvailabilityForm
+    form = AvailabilityandPictureForm
 
 class UserAdmin(UserAdmin):
     inlines = (PersonAdmin,)
