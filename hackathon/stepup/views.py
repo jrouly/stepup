@@ -30,20 +30,20 @@ def index(request):
     },
     )
 
-def opportunity(request):
+def opportunity(request, slug):
 
     return render_to_response('opportunity.html', {
         # 'name' : 
     },
     )
 
-def person(request):
+def person(request, slug):
     return render_to_response('person.html', {
     
     },
     )
 
-def organization(request):
+def organization(request, slug):
     return render_to_response('organization.html', {
     # put the variables you need here
     },
