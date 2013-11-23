@@ -5,7 +5,7 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
 
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ('name', 'bio')
+    list_display = ('name', 'description')
 
 class OrganizationAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
