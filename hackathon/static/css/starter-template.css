@@ -89,3 +89,9 @@ body {
 .centered-image {
   text-align: center;
 }
+
+.feed { 
+  min-width: 100px;
+  height: 200px;
+  overflow-x: scroll;
+}

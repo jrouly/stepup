@@ -53,8 +53,24 @@ def index(request):
 #    except (InvalidPage, EmptyPage):
 #        opportunities = paginator.page(paginator.num_pages)
 
+
+    tag_opportunities = []
+    current_tags = request.user.tags.all()
+    for tag in current_tags:
+        opportunity = Opportunity.objects.filter(tags=tag).all()
+        tag_opportunities.append( opportunity )
+
+    org_opportunities = []
+    current_orgs = request.user.organizations.all()
+    for org in current_orgs:
+        opportunity = Opportunity.objects.filter(organizations=org).all()
+        org_opportunities.append( opportunity )
+      
+    
     return render_to_response('index.html', {
-#        "everything" : Objects.opportunities.all(),
+        "current_user" : request.user,
+        "tag_feed" : tag_opportunities,
+        "org_feed" : org_opportunities,
     },
     context_instance = RequestContext(request),
     )
@@ -70,18 +86,18 @@ def opportunity(request, slug):
 @login_required
 def person(request, slug):
     return render_to_response('person.html', {
-       "current_user" : request.user,
-       "requested_user" : Person.objects.get(user__username=slug),
-       "requested_tags" : Person.objects.get(user__username=slug).tags.all(),
-       #"global_tags" : Tag.objects.all(),
-       "global_events" : Opportunity.objects.all(),
-       "sunday" : len(Person.objects.get(user__username=slug).sunday),
-       "monday" : len(Person.objects.get(user__username=slug).monday),
-       "tuesday" : len(Person.objects.get(user__username=slug).tuesday),
-       "wednesday" : len(Person.objects.get(user__username=slug).wednesday),
-       "thursday" : len(Person.objects.get(user__username=slug).thursday),
-       "friday" : len(Person.objects.get(user__username=slug).friday),
-       "saturday" : len(Person.objects.get(user__username=slug).saturday),
+        "current_user" : request.user,
+        "requested_user" : Person.objects.get(user__username=slug),
+        "requested_tags" : Person.objects.get(user__username=slug).tags.all(),
+        #"global_tags" : Tag.objects.all(),
+        "global_events" : Opportunity.objects.all(),
+        "sunday" : len(Person.objects.get(user__username=slug).sunday),
+        "monday" : len(Person.objects.get(user__username=slug).monday),
+        "tuesday" : len(Person.objects.get(user__username=slug).tuesday),
+        "wednesday" : len(Person.objects.get(user__username=slug).wednesday),
+        "thursday" : len(Person.objects.get(user__username=slug).thursday),
+        "friday" : len(Person.objects.get(user__username=slug).friday),
+        "saturday" : len(Person.objects.get(user__username=slug).saturday),
     },
     context_instance = RequestContext(request),
     )
