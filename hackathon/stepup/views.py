@@ -18,17 +18,17 @@ def login_request(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-	    return render_to_response('index.html', {
+	    return render_to_response('/index', {
 
         },
         )
         else:
             # Return an 'invalid login' error message.
-            return render_to_response('login.html', {
+            return render_to_response('/login', {
         },
         )
     else:
-        return render_to_response('login.html', {
+        return render_to_response('/login', {
         },
         )
 

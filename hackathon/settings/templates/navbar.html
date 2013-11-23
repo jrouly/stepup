@@ -29,7 +29,7 @@
 
       <div class="navbar-right">
         <ul class="nav navbar-nav">
-          {% if user.is_authenticated() %}
+          {% if user.is_authenticated %}
             <li><a href="/person/abdullah">Profile</a></li>
             <li><a href="/logout">Log Out</a></li>
             {% if is_admin %}
