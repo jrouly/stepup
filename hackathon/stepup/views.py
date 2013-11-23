@@ -75,6 +75,13 @@ def person(request, slug):
        #"requested_tags" : Person.objects.get(user__username=slug).tags,
        "global_tags" : Tag.objects.all(),
        "global_events" : Opportunity.objects.all(),
+       "sunday" : Person.objects.get(user__username=slug).sunday,
+       "monday" : Person.objects.get(user__username=slug).monday,
+       "tuesday" : Person.objects.get(user__username=slug).tuesday,
+       "wednesday" : Person.objects.get(user__username=slug).wednesday,
+       "thursday" : Person.objects.get(user__username=slug).thursday,
+       "friday" : Person.objects.get(user__username=slug).friday,
+       "saturday" : Person.objects.get(user__username=slug).saturday,
     },
     context_instance = RequestContext(request),
     )
