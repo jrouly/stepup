@@ -9,22 +9,32 @@ from stepup.forms import AvailabilityForm
 class OrgInlinePerson(admin.StackedInline):
     model = Organization.people.through
     extra = 1
+    verbose_name = "Members"
+
+class OrgInlineAdmin(admin.StackedInline):
+    model = Organization.admins.through
+    extra = 1
+    verbose_name = "Admins"
 
 class PersonInlineOrg(admin.StackedInline):
     model = Person.organizations.through
     extra = 1
+    verbose_name = "Organizations"
 
 class PersonInlineTag(admin.StackedInline):
     model = Tag.people.through
     extra = 1
+    verbose_name = "Tags"
 
 class OpportunityInlineTag(admin.StackedInline):
     model = Tag.opportunities.through
     extra = 1
+    verbose_name = "Tags"
 
 class OpportunityInlineOrg(admin.StackedInline):
     model = Organization.opportunities.through
     extra = 1
+    verbose_name = "Organization"
 
 class TagAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -48,7 +58,7 @@ class OrganizationAdmin(admin.ModelAdmin):
         (None,		{'fields': ['name', 'description']}),
 	("Location information", {'fields': ['city', 'state', 'country']})
     ]
-    inlines = [OrgInlinePerson]
+    inlines = [OrgInlinePerson, OrgInlineAdmin]
     list_display = ('name', 'description')
 
 class OpportunityAdmin(admin.ModelAdmin):

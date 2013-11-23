@@ -29,7 +29,7 @@ class Opportunity(models.Model):
         return ('name_of_the_view', None, {'slug': self.slug})
 
     def __unicode__(self):
-            return '%s' % self.name
+        return '%s' % self.name
 
     class Meta:
         verbose_name_plural = "Opportunities"
@@ -59,6 +59,9 @@ class Person(models.Model):
     def get_absolute_url(self):
         return ('name_of_the_view', None, {'slug': self.slug})
 
+    def __unicode__(self):
+        return '%s' % self.user.first_name + " " + self.user.last_name
+
     class Meta:
         verbose_name_plural = "People"
 
@@ -68,13 +71,18 @@ class Organization(models.Model):
     slug = models.SlugField(max_length=50)
     description = models.TextField()
     people = models.ManyToManyField(Person, Person.organizations.through,
-                                    blank=True)
+                                    blank=True, verbose_name="Members")
     opportunities = models.ManyToManyField(Opportunity,
                                            Opportunity.organizations.through,
                                            blank=True)
+    admins = models.ManyToManyField(Person, Person.admingroups.through,
+                                    verbose_name="Admins", related_name="admin", blank=False)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return'%s' % self.name
 
     @models.permalink
     def get_absolute_url(self):
