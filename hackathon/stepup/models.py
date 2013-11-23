@@ -3,22 +3,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class UserClass(models.Model):
-    """Default fields
-    """
-
-    name = models.CharField("Username", max_length=200)
-    slug = models.SlugField(max_length=50)
-    # location =
-    description = models.TextField(blank=True)
-
-    def __unicode__(self):
-        return '%s' % self.name
-
-    class Meta:
-        abstract = True
-
-
 class Opportunity(models.Model):
     name = models.CharField("Name", max_length=200)
     slug = models.SlugField(max_length=50)
@@ -70,7 +54,7 @@ class Person(models.Model):
 
     tags = models.ManyToManyField('Tag', blank=True)
     organizations = models.ManyToManyField('Organization', blank=True)
-
+    admingroups = models.ManyToManyField('Organization', blank=True, related_name="admin")
     @models.permalink
     def get_absolute_url(self):
         return ('name_of_the_view', None, {'slug': self.slug})
@@ -79,7 +63,10 @@ class Person(models.Model):
         verbose_name_plural = "People"
 
 
-class Organization(UserClass):
+class Organization(models.Model):
+    name = models.CharField("Organization Name", max_length=200)
+    slug = models.SlugField(max_length=50)
+    description = models.TextField()
     people = models.ManyToManyField(Person, Person.organizations.through,
                                     blank=True)
     opportunities = models.ManyToManyField(Opportunity,
