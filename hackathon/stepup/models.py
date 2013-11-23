@@ -24,8 +24,8 @@ class Opportunity(models.Model):
     slug = models.SlugField(max_length=50)
     description = models.TextField()
 
-    tags = models.ManyToManyField('Tag')
-    organizations = models.ManyToManyField('Organization')
+    tags = models.ManyToManyField('Tag', blank=True)
+    organizations = models.ManyToManyField('Organization', blank=True)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
@@ -50,8 +50,8 @@ class Person(User):
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     schedule = models.DateField()
-    tags = models.ManyToManyField('Tag')
-    organizations = models.ManyToManyField('Organization')
+    tags = models.ManyToManyField('Tag', blank=True)
+    organizations = models.ManyToManyField('Organization', blank=True)
 
     @models.permalink
     def get_absolute_url(self):
