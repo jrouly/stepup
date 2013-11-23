@@ -70,7 +70,7 @@ def organization(request, slug):
     },
     )
 
-def about(request, slug):
+def about(request):
     return render_to_response('about.html', {
     # put the variables you need here
     },
