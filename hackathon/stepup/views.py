@@ -138,13 +138,6 @@ def organization(request, slug):
         #"requested_tags" : Organization.objects.get(name=slug).tags.all(),
         #"global_tags" : Tag.objects.all(),
         "global_events" : Opportunity.objects.all(),
-        "sunday" : len(Organization.objects.get(name=slug).sunday),
-        "monday" : len(Organization.objects.get(name=slug).monday),
-        "tuesday" : len(Organization.objects.get(name=slug).tuesday),
-        "wednesday" : len(Organization.objects.get(name=slug).wednesday),
-        "thursday" : len(Organization.objects.get(name=slug).thursday),
-        "friday" : len(Organization.objects.get(name=slug).friday),
-        "saturday" : len(Organization.objects.get(name=slug).saturday),
     },
     context_instance = RequestContext(request),
     )
