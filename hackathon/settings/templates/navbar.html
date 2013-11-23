@@ -29,7 +29,7 @@
 
       <div class="navbar-right">
         <ul class="nav navbar-nav">
-          {% user.username %}
+          {{ user.username }}
             <li><a href="/person/abdullah">Profile</a></li>
             <li><a href="/logout">Log Out</a></li>
             {% if is_admin %}
