@@ -1,31 +1,18 @@
 body {
-  padding-top: 50px;
+  padding-top: 80px;
+  background: LightGray;
 }
 
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
-
-.moarcolor {
-  background: LightSteelBlue;
-  padding-bottom = 10px;
-  border-radius: 8px;
-}
-
-.backgrounddiv {
+.back-tiles {
   background: LightBlue;
-  border-radius: 5px;
+  border-radius: 7px;
+  margin-bottom: 15px;
 }
 
-.merged .input-group-addon {
-  border-right: 0px;
-  background-color: #FFFFFF;
-}
-
-div.input-group.merged {
-  width: 250px;
-  border-left: 0px;
-  border-radius: 5px;
-  background-color: #FFFFFF;
+.front-tiles {
+  background: LightSteelBlue;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 15px;
 }
