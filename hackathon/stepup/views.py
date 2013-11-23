@@ -132,6 +132,14 @@ def organization(request, slug):
     )
 
 @login_required
+def tag(request, slug):
+    return render_to_response('tag.html', {
+        # 'name' : 
+    },
+    context_instance = RequestContext(request),
+    )
+
+@login_required
 def search(request):
     return render_to_response('search.html', {
     },
