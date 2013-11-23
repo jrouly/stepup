@@ -39,4 +39,15 @@ body {
   margin-bottom: 15px;
 }
 
+.profile-heading {
+  padding: 0px;
+  margin: 0px;
+}
 
+.profile-value {
+  padding: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 20px;
+}
