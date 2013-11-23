@@ -18,7 +18,7 @@ urlpatterns = patterns('stepup.views',
     url(r'^$', 'index', name = 'homepage'),
 
 	# about
-    url(r'^about$', 'about', name = 'view_about'),
+    url(r'^about/$', 'about', name = 'view_about'),
     
     # person
     url(r'^person/(?P<slug>[^\.]+)', 'person', name = 'view_person'),
