@@ -21,7 +21,8 @@ class AvailabilityForm(forms.ModelForm):
 class PictureForm(forms.ModelForm):
     picture = forms.ImageField(
         label='Select an image',
-        help_text='Max size 2 megabytes'
+        help_text='Max size 2 megabytes',
+	required=False
     )
 
 class AvailabilityandPictureForm(forms.ModelForm):
@@ -34,7 +35,8 @@ class AvailabilityandPictureForm(forms.ModelForm):
     saturday = forms.MultipleChoiceField(choices=AVAILABILITY, widget=forms.CheckboxSelectMultiple(), required=False)
     picture = forms.ImageField(
         label='Select an image',
-        help_text='Max size 2 megabytes'
+        help_text='Max size 2 megabytes',
+	required=False
     )
     def clean_my_field(self):
         return self.cleaned_data['availability'] or None
