@@ -15,7 +15,7 @@ urlpatterns = patterns('stepup.views',
     url(r'^admin/', include(admin.site.urls)),
 
     # homepage
-    #url(r'^$', 'index', name = 'homepage'),
+    url(r'^$', 'index', name = 'homepage'),
 
 	# about
     url(r'^about$', 'about', name = 'view_about'),
