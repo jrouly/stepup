@@ -1,1 +1,39 @@
-I've come to talk with you again
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+
+<h1>Hatching chicks in Ms. Garfunkel's 3rd Grade Class</h1>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+<div class="row">
+  <div class="col-md-4">
+    Description
+  </div>
+  <div class="col-md-4">
+    Place
+  </div>
+  <div class="col-md'4">
+    Schedule
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    Picture? (need to create in the models)
+  </div>
+  <div class="col-md-4">
+    Tags
+  </div>
+  <div class="col-md'4">
+    Organization
+  </div>
+</div>
+
+</div>
+
+{% enblock %}
