@@ -5,6 +5,7 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+<<<<<<< HEAD
 
 .moarcolor {
   background: LightSteelBlue;
@@ -15,4 +16,13 @@ body {
 .backgrounddiv {
   background: LightBlue;
   border-radius: 5px;
+=======
+.merged .input-group-addon {
+  border-right: 0px;
+  background-color: #FFFFFF;
+}
+.merged input {
+  border-left: 0px;
+  background-color: #FFFFFF;
+>>>>>>> 4cb5b63595d0610299b94e2aea2b46f42d849c73
 }
