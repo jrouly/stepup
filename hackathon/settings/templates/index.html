@@ -7,59 +7,63 @@
     <div class ="row">
         <div class="col-md-6 back-tiles pull-left"><h3>Interest Feed</h3>
           <div class="row">
-            <div class="front-tiles"><h4>Opportunities matching with your tags. Query all opportunities and filtering by the user's tags and the date posted in reverse order.</h4></div>
+            <div class="front-tiles"><h4>Opportunities matching with your tags.</h4>
 
             <div class="feed">
               {% for entry in tag_feed %}
-                {{ entry }}
+                <a href="{{ entry.get_absolute_url }}">{{entry }}</a><br />
               {% endfor %}
             </div>
-
+            </div>
           </div>
         </div>
         
-        <div class="col-md-6 back-tiles pull-right"><h3>Org Feed</h3>
+        <div class="col-md-6 back-tiles pull-right"><h3>Organizational Feed</h3>
           <div class="row">
-            <div class="front-tiles"><h4>All of the activity from your organizations. All opportunities from your selected organization sorted by reverse date.</h4></div>
+            <div class="front-tiles"><h4>All of the activity from your organizations.</h4>
 
 
             <div class="feed">
               {% for entry in org_feed %}
-                {{ entry }}
+                  <a href="{{ entry.get_absolute_url }}">{{entry }}</a><br />
+
               {% endfor %}
             </div>
 
-
+            </div>
           </div>
         </div>
     </div>
     
     <div class="row">
-      <div class="col-md-6 back-tiles pull-left"><h3>Recommendations</h3>
+      <div class="col-md-6 back-tiles pull-left"><h3>Trending Feed</h3>
         <div class="row">
-          <div class="front-tiles"><h4>Will show recommended events by your previous activity at some point, but for the time being, it wil merely newly created tags and organizations.</h4></div>
+          <div class="front-tiles"><h4>This feed shows trending, popular
+          events and tags in the community.</h4>
 
             <div class="feed">
               {% for entry in tags_and_orgs_feed %}
-                {{ entry }}
+                  <a href="{{ entry.get_absolute_url }}">{{entry }}</a><br />
+
               {% endfor %}
             </div>
 
-
+          </div>
         </div>
       </div>
       
-      <div class="col-md-6 back-tiles pull-right"><h3>Everything</h3>
+      <div class="col-md-6 back-tiles pull-right"><h3>Platform Opportunities</h3>
         <div class="row">
-          <div class="front-tiles"><h4>Query all the things</h4></div>
+          <div class="front-tiles"><h4>Displays all of the opportunities
+          currently present on the platform.</h4>
 
             <div class="feed">
-              {% for entry in combined_feed %}
-                {{ entry }}
+              {% for entry in global_opp_feed %}
+		<a href="{{ entry.get_absolute_url }}">{{entry }}</a><br />
               {% endfor %}
             </div>
 
-
+          </div>
         </div>
       </div>
     </div>

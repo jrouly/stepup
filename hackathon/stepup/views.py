@@ -66,12 +66,23 @@ def index(request):
     for org in current_orgs:
         opportunity = Opportunity.objects.filter(organizations=org).all()
         org_opportunities.append( opportunity )
-      
-    
+
+    tags_and_orgs = []
+    global_tags = Tag.objects.all()
+    for tag in global_tags:
+        tags_and_orgs.append( tag )
+    global_orgs = Organization.objects.all()
+    for org in global_orgs:
+        tags_and_orgs.append( org )
+
+    global_opps = Opportunity.objects.all()
+
     return render_to_response('index.html', {
         "current_user" : current_user,
         "tag_feed" : tag_opportunities,
         "org_feed" : org_opportunities,
+        "tags_and_orgs_feed" : tags_and_orgs,
+        "global_opp_feed" : global_opps,
     },
     context_instance = RequestContext(request),
     )
@@ -96,7 +107,6 @@ def all_opportunity(request):
 @login_required
 def person(request, slug):
     return render_to_response('person.html', {
-        "current_user" : request.user,
         "requested_user" : Person.objects.get(user__username=slug),
         "requested_tags" : Person.objects.get(user__username=slug).tags.all(),
         #"global_tags" : Tag.objects.all(),
@@ -124,7 +134,17 @@ def all_person(request):
 @login_required
 def organization(request, slug):
     return render_to_response('organization.html', {
-    # put the variables you need here
+        "requested_org" : Organization.objects.get(user__username=slug),
+        "requested_tags" : Organization.objects.get(user__username=slug).tags.all(),
+        #"global_tags" : Tag.objects.all(),
+        "global_events" : Opportunity.objects.all(),
+        "sunday" : len(Organization.objects.get(user__username=slug).sunday),
+        "monday" : len(Organization.objects.get(user__username=slug).monday),
+        "tuesday" : len(Organization.objects.get(user__username=slug).tuesday),
+        "wednesday" : len(Organization.objects.get(user__username=slug).wednesday),
+        "thursday" : len(Organization.objects.get(user__username=slug).thursday),
+        "friday" : len(Organization.objects.get(user__username=slug).friday),
+        "saturday" : len(Organization.objects.get(user__username=slug).saturday),
     },
     context_instance = RequestContext(request),
     )

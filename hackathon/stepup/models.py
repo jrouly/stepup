@@ -97,6 +97,7 @@ class Organization(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
+    slug = models.SlugField(max_length=50)
     people = models.ManyToManyField(Person, through=Person.tags.through,
                                     blank=True)
     opportunities = models.ManyToManyField(Opportunity,
