@@ -10,6 +10,7 @@ class Opportunity(models.Model):
 
     tags = models.ManyToManyField('Tag', blank=True)
     organizations = models.ManyToManyField('Organization', blank=True)
+    attendees = models.ManyToManyField('Person', blank=True)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
@@ -57,6 +58,7 @@ class Person(models.Model):
     tags = models.ManyToManyField('Tag', blank=True)
     organizations = models.ManyToManyField('Organization', blank=True)
     admingroups = models.ManyToManyField('Organization', blank=True, related_name="admin")
+    events = models.ManyToManyField('Opportunity', blank=True)
     @models.permalink
     def get_absolute_url(self):
         return ('name_of_the_view', None, {'slug': self.slug})
