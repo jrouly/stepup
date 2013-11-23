@@ -43,7 +43,7 @@ class Person(User):
 	bio = models.TextField(max_length = 2048)
 	city = models.CharField(max_length = 50)
 	state = models.CharField(max_length = 50)
-	country models.CharField(max_length = 50)
+	country = models.CharField(max_length = 50)
 	schedule = models.DateField()
 	tags = models.ForeignKey('Tag')
 
