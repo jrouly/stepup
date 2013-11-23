@@ -158,13 +158,13 @@ def all_organizations(request):
     context_instance = RequestContext(request),
     )
 
-@login_required
-def tag(request, slug):
-    return render_to_response('tag.html', {
-        "x" : slug,
-    },
-    context_instance = RequestContext(request),
-    )
+#@login_required
+#def tag(request, slug):
+#    return render_to_response('tag.html', {
+#        "x" : slug,
+#    },
+#    context_instance = RequestContext(request),
+#    )
 
 @login_required
 def search(request):
