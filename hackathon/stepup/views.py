@@ -54,7 +54,7 @@ def index(request):
 #        opportunities = paginator.page(paginator.num_pages)
 
     return render_to_response('index.html', {
-
+        "everything" : Objects.opportunities.all(),
     },
     context_instance = RequestContext(request),
     )
