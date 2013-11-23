@@ -54,4 +54,4 @@ class Organization(User):
 
     @permalink
     def get_absolute_url(self):
-        return ('name_of_the_view;, None, {'slug':self.slug})
+        return ('name_of_the_view', None, {'slug':self.slug})
