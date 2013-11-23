@@ -10,8 +10,7 @@
 <form method="post" action="{% url 'django.contrib.auth.views.login' %}" class="form-horizontal" role="form">
 {% csrf_token %}
   <div class="form-group">
-      <svg clas="centered-image" xmlns="static/img/logo2.svg">
-        </svg>
+      <embed class="centered-image" src="static/img/logo2.svg" /><br /><br />
       <label for="Username" class="col-sm-2 control-label">Username</label>
     <div class="col-sm-10">
       <input type="username" class="form-control" name="username" id="username" placeholder="Username">
