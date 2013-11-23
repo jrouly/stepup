@@ -34,7 +34,6 @@ class Opportunity(User):
         return ('name_of_the_view', None, {'slug':self.slug})
 
 class Person(User):
-    
     first_name = models.CharField(max_length = 200)
     last_name = models.CharField(max_length = 200)
     city = models.CharField(max_length = 50)
