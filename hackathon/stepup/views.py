@@ -10,22 +10,27 @@ from django.contrib.auth.decorators import login_required
 
 #login
 
-def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        login(request, user)
+def login_request(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
             # Redirect to a success page.
-	return render_to_response('index.html', {
+	    return render_to_response('index.html', {
 
-    },
-    )
+        },
+        )
+        else:
+            # Return an 'invalid login' error message.
+            return render_to_response('login.html', {
+        },
+        )
     else:
-        # Return an 'invalid login' error message.
         return render_to_response('login.html', {
-    },
-    )
+        },
+        )
 
 # webpage-generating view functions
 @login_required
