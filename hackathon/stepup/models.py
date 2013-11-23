@@ -43,6 +43,8 @@ class Person(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
+    maxdistance = models.IntegerField()
+    picture = models.ImageField(upload_to="media/%s" % user)
 
     sunday = models.CharField(max_length=50, blank=True, verbose_name="Sunday")
     monday = models.CharField(max_length=50, blank=True, verbose_name="Monday")
@@ -70,6 +72,7 @@ class Organization(models.Model):
     name = models.CharField("Organization Name", max_length=200)
     slug = models.SlugField(max_length=50)
     description = models.TextField()
+    picture = models.ImageField(upload_to="media/%s" % name)
     people = models.ManyToManyField(Person, Person.organizations.through,
                                     blank=True, verbose_name="Members")
     opportunities = models.ManyToManyField(Opportunity,
