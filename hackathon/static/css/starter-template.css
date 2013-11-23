@@ -29,6 +29,9 @@ body {
   background: LightBlue;
   border-radius: 7px;
   margin-bottom: 15px;
+  
+
+
 }
 
 .front-tiles {
@@ -37,6 +40,13 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   margin-bottom: 15px;
+  
+  
 }
-
+.pull-left{
+  width: 45%;
+}
+.pull-right{
+  width: 50%;
+}
 
