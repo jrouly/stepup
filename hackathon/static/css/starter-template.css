@@ -5,8 +5,11 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
-
-.moarcolor {
-  background: LightSteelBlue;
-  outline-color: Gray;
+.merged .input-group-addon {
+  border-right: 0px;
+  background-color: #FFFFFF;
+}
+.merged input {
+  border-left: 0px;
+  background-color: #FFFFFF;
 }
