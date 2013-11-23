@@ -9,8 +9,7 @@ from django.core.urlresolvers import reverse
 # webpage-generating view functions
 def index(request):
 
-    opportunities = Opportunity.objects.filter(posted__year=year, posted__month=month)
-
+    opportunities = Opportunity.objects.all().order_by("-posted")
     paginator = Paginator(opportunities, 12)
 
     try:
