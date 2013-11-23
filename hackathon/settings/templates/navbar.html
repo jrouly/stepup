@@ -29,12 +29,11 @@
 
       <div class="navbar-right">
         <ul class="nav navbar-nav">
-          {% if user.is_authenticated %}
-            <li><a href="/person/abdullah">Profile</a></li>
-            <li><a href="/logout">Log Out</a></li>
-            {% if is_admin %}
-              <li><a href="/organization/myorgname">About</a></li>
-            {% endif %}
+          {{ user.username }}
+          <li><a href="/person/abdullah">Profile</a></li>
+          <li><a href="/logout">Log Out</a></li>
+          {% if is_admin %}
+            <li><a href="/organization/myorgname">About</a></li>
           {% endif %}
         </ul>
       </div>
