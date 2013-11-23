@@ -112,10 +112,28 @@ def person(request, slug):
     context_instance = RequestContext(request),
     )
 
+# ux display all thing continued
+@login_required
+def all_person(request):
+    return render_to_response('all_person.html', {
+        all_person = Person.objects.all(),
+    },
+    context_instance = RequestContext(request),
+    )
+
 @login_required
 def organization(request, slug):
     return render_to_response('organization.html', {
     # put the variables you need here
+    },
+    context_instance = RequestContext(request),
+    )
+
+# ux display all things continued
+@login_required
+def all_organization(request):
+    return render_to_response('all_organization.html', {
+        all_organization = Organization.objects.all(),
     },
     context_instance = RequestContext(request),
     )
