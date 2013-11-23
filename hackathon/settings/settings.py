@@ -124,6 +124,8 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 
 LOGIN_URL = '/login'
 
+LOGIN_REDIRECT_URL = '/'
+
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
