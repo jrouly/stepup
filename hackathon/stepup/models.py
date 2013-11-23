@@ -47,11 +47,14 @@ class Person(User):
 	schedule = models.DateField()
 	tags = models.ForeignKey('Tag')
 
-	def __unicode__(self):
-		return '%s' % self.name
+    def __unicode__(self):
+	return '%s' % self.name
 
 class Organization(User):
 
     @permalink
     def get_absolute_url(self):
         return ('name_of_the_view', None, {'slug':self.slug})
+
+    def __unicode__(self):
+        return '%s' % self.name
