@@ -1,7 +1,7 @@
 # Create your views here.
 
 from stepup.models import *
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
@@ -70,7 +70,9 @@ def opportunity(request, slug):
 @login_required
 def person(request, slug):
     return render_to_response('person.html', {
-    
+       "current_user" : request.user,
+       "requested_user" : get_object_or_404( Person, slug=slug),
+       "person_tags" : Tags.objects.all(),
     },
     context_instance = RequestContext(request),
     )
