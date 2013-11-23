@@ -19,10 +19,10 @@
 
             {% if opportunities.has_next %}
             <li class = "next">
-                <a href= "?page={{ posts.next_page_number }}">Older &rarr;</a></li>
+                <a href= "?page={{ opportunities.next_page_number }}">Older &rarr;</a></li>
             {% else %}
             <li class = "next disabled">
-                <a href= "?page={{ posts.next_page_number }}">Older &rarr;</a></li>
+                <a href= "?page={{ opportunities.next_page_number }}">Older &rarr;</a></li>
             {% endif %}
         </ul>
     </div>
