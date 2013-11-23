@@ -153,7 +153,7 @@ def organization(request, slug):
 @login_required
 def all_organization(request):
     return render_to_response('all_organization.html', {
-        all_organization = Organization.objects.all(),
+        "all_organization" : Organization.objects.all(),
     },
     context_instance = RequestContext(request),
     )
