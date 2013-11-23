@@ -27,7 +27,7 @@ class PersonInlineTag(admin.StackedInline):
     verbose_name = "Tags"
 
 class OpportunityInlineTag(admin.StackedInline):
-    model = Opportunity.tag.through
+    model = Opportunity.tags.through
     extra = 1
     verbose_name = "Tags"
 
