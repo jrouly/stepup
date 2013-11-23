@@ -36,6 +36,11 @@ class OpportunityInlineOrg(admin.StackedInline):
     extra = 1
     verbose_name = "Organization"
 
+class OpportunityInlinePerson(admin.StackedInline):
+    model = Opportunity.attendees.through
+    extra = 1
+    verbose_name = "Attendees"
+
 class TagAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,          {'fields': ['name', 'description']})
@@ -67,7 +72,7 @@ class OpportunityAdmin(admin.ModelAdmin):
         ("Location information", {'fields': ['city', 'state', 'country']}),
 	("Times", {'fields': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']})
     ]
-    inlines = [OpportunityInlineTag, OpportunityInlineOrg]
+    inlines = [OpportunityInlineTag, OpportunityInlineOrg, OpportunityInlinePerson]
     list_display = ('name', 'description')
     list_filter = ('name', 'tags', 'date_created')
     form = AvailabilityandPictureForm

@@ -45,7 +45,7 @@ class Person(models.Model):
     state = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     maxdistance = models.IntegerField()
-    picture = models.ImageField(upload_to="media/%s" % user)
+    picture = models.ImageField(upload_to="media/%s" % user, blank=True)
 
     sunday = models.CharField(max_length=50, blank=True, verbose_name="Sunday")
     monday = models.CharField(max_length=50, blank=True, verbose_name="Monday")
