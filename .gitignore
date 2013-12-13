@@ -1,3 +1,4 @@
 srct/
 *.pyc
 *.swp
+stepup/settings/secret.py
