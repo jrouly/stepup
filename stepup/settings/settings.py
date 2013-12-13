@@ -1,5 +1,7 @@
 # Django settings for stepup project.
 import os
+import secret
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -15,24 +17,13 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'srct_hack',  # Or path to database file if using sqlite3.
-        'USER': 'django_srct',     # Not used with sqlite3.
-        'PASSWORD': '13django_srct!',     # Not used with sqlite3.
-        'HOST': '127.0.0.1',     # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '3306',     # Set to empty string for default. Not used with sqlite3.
+        'NAME': secret.DB_NAME,  # Or path to database file if using sqlite3.
+        'USER': secret.DB_USER,     # Not used with sqlite3.
+        'PASSWORD': secret.DB_PASSWORD,     # Not used with sqlite3.
+        'HOST': secret.DB_HOST,     # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': secret.DB_PORT,     # Set to empty string for default. Not used with sqlite3.
     }
 }
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#        'NAME': 'database.db',  # Or path to database file if using sqlite3.
-#        'USER': '',     # Not used with sqlite3.
-#        'PASSWORD': '',     # Not used with sqlite3.
-#        'HOST': '',     # Set to empty string for localhost. Not used with sqlite3.
-#        'PORT': '',     # Set to empty string for default. Not used with sqlite3.
-#    }
-#}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -59,7 +50,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'srv/www/mysite/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -70,7 +61,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/opt/vahack/volunteer/hackathon/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -78,7 +69,6 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    'static/',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -93,7 +83,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '*l&amp;9@0$n1_av8yvnoo)ol_i9827tjk9779ji!&amp;7ju^3qxu@b(j'
+SECRET_KEY = secret.SECRET_KEY
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -112,9 +102,11 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-#TEMPLATE_CONTEXT_PROCESSORS = (
-#    'django.core.context_processors.static',
-#)
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.static',
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+)
 
 ROOT_URLCONF = 'settings.urls'
 
@@ -126,7 +118,7 @@ LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_PATH, 'templates'),
+    'templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
